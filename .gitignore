@@ -1,0 +1,26 @@
+.DS_Store
+node_modules
+/dist
+yarn.lock
+.localConfig.js
+package-lock.json
+
+# local env files
+.env.local
+.env.*.local
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editor directories and files
+.idea
+# .vscode 共享vscode配置
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw*
+*.orig
+/tmp
