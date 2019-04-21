@@ -1,10 +1,10 @@
 {
-  "name": "testMocha",
+  "name": "fe-interview-practice",
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha test/**/*.spec.js"
   },
   "dependencies": {
     "mocha": "^6.1.3"

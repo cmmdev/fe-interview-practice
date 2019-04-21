@@ -72,6 +72,8 @@ function visit(matrix, startX, startY, len, direction) {
     return ret;
 }
 
+exports.spiralOrder = spiralOrder
+
 console.log(spiralOrder([
     [ 1, 2, 3, 4 ],
     [ 4,6,7,8 ],
@@ -79,6 +81,6 @@ console.log(spiralOrder([
     [ 13,14,15,16 ]
    ]))
 
-//    console.log(spiralOrder([
-//     [1,2],[3,4]
-//    ]))
+   console.log(spiralOrder([
+    [1,2],[3,4]
+   ]))
