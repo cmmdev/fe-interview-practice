@@ -19,10 +19,33 @@
 你的算法的时间复杂度应为O(n)，并且只能使用常数级别的空间。
  */
 
- /**
+/**
  * @param {number[]} nums
  * @return {number}
  */
 var firstMissingPositive = function(nums) {
-    
-};
+  let len  = nums.length
+  for (let i = 0; i < len; i++) {
+    let num = nums[i]
+
+    if (num == i + 1 || num > len || num <= 0) {
+      continue
+    }
+
+    do {
+      let temp = nums[num - 1]
+      nums[num - 1] = num
+      num = temp
+    } while (!(num == nums[num - 1] || num <= 0 || num > len))
+  }
+
+  for (let i = 0; i < len; i++) {
+    if (nums[i] != i+1) {
+      return i+1
+    }
+  }
+  return len+1
+}
+
+
+console.log(firstMissingPositive([1]))
