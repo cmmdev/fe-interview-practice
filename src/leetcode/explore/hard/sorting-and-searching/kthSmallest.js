@@ -25,3 +25,5 @@ k = 8,
 var kthSmallest = function(matrix, k) {
     
 };
+
+exports.kthSmallest = kthSmallest

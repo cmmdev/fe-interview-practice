@@ -16,5 +16,39 @@
  * @return {number[]}
  */
 var productExceptSelf = function(nums) {
-    
-};
+  if (!nums || nums.length <= 1) return NaN
+
+  let prefix = []
+  const len = nums.length
+  for (let i = 0; i < len; i++) {
+    if (i == 0) {
+      prefix[i] = nums[i]
+    } else {
+      prefix[i] = prefix[i - 1] * nums[i]
+    }
+  }
+
+  // nums posfix
+  for (let i = len - 1; i >= 0; i--) {
+    if (i == len - 1) {
+      continue
+    } else {
+      nums[i] = nums[i] * nums[i + 1]
+    }
+  }
+
+  let head = nums[1]
+  let tail = prefix[len - 2]
+
+  for (let i = len - 2; i >= 1; i--) {
+    prefix[i] = prefix[i - 1] * nums[i + 1]
+  }
+  prefix[0] = head
+  prefix[len - 1] = tail
+
+  return prefix
+}
+
+exports.productExceptSelf = productExceptSelf
+
+// console.log(productExceptSelf([2, 1, 3, 4]))

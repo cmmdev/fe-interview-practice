@@ -20,3 +20,6 @@
 var largestNumber = function(nums) {
     
 };
+
+//  [3,30,34,5,9, 96, 92, 6, 89]
+// 9 96  89 8
