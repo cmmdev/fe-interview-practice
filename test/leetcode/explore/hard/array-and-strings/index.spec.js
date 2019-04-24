@@ -42,6 +42,11 @@ describe('array and strings', function() {
         let input = [-4,-1, 4,-5,1,-6,9,-6,0,2,2,7,0,9,-3,8,9,-2,-6,5,0,3,4,-2]
         output = 12
         assert.equal(longestConsecutive(input), output)
+      }),
+      it('case 3', function() {
+        let input = [-2,-3,-3,7,-3,0,5,0,-8,-4,-1,2]
+        output = 5
+        assert.equal(longestConsecutive(input), output)
       })
   })
   describe('productExceptSelf', function() {

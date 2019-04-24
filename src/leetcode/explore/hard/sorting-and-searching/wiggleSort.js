@@ -24,6 +24,7 @@
  */
 // inplace method
 var wiggleSort1 = function(nums) {
+  nums.sort((x,y) => x-y)
   let len = nums.length
   const halfLen = Math.floor(len / 2)
   const odd = halfLen % 2 == 1
@@ -45,7 +46,7 @@ var wiggleSort1 = function(nums) {
 // > x
 // = x
 // feed array
-var wiggleSort1 = function(nums) {
+var wiggleSort2 = function(nums) {
   let len = nums.length
   let halfLen = Math.ceil(len / 2)
   let mid = findNth(nums, halfLen)

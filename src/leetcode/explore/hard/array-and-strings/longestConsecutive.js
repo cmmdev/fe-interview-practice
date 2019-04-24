@@ -20,23 +20,23 @@ var longestConsecutive = function(nums) {
   const endMap = new Map()
 
   nums.forEach(num => {
-    startMap.set(num, num)
-    endMap.set(num, num)
+    startMap.set(num,num)
+    endMap.set(num,num)
   })
 
   nums.forEach(num => {
     let start, end
-    if (startMap.get(num - 1) && endMap.get(num + 1)) {
+    if (startMap.get(num - 1) !== undefined && endMap.get(num + 1) !== undefined) {
       start = startMap.get(num - 1)
       end = endMap.get(num + 1)
-    } else if (startMap.get(num - 1)) {
+    } else if (startMap.get(num - 1)  !== undefined ) {
       start = startMap.get(num - 1)
       end = num
-    } else if (endMap.get(num + 1)) {
+    } else if (endMap.get(num + 1) !== undefined) {
       start = num
       end = endMap.get(num + 1)
     } else {
-      return
+      return;
     }
     startMap.set(end, Math.min(start, startMap.get(end)))
     endMap.set(start, Math.max(end, endMap.get(start)))
@@ -54,32 +54,4 @@ var longestConsecutive = function(nums) {
 
 exports.longestConsecutive = longestConsecutive
 
-console.log(longestConsecutive([4, 1, 2, 0, 1, 5, 1, 2, 3]))
-console.log(
-  longestConsecutive([
-    -4,
-    -1,
-    4,
-    -5,
-    1,
-    -6,
-    9,
-    -6,
-    0,
-    2,
-    2,
-    7,
-    0,
-    9,
-    -3,
-    8,
-    9,
-    -2,
-    -6,
-    5,
-    0,
-    3,
-    4,
-    -2
-  ])
-)
+console.log(longestConsecutive([-2,-3,-3,7,-3,0,5,0,-8,-4,-1,2]))
