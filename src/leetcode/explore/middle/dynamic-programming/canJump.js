@@ -24,5 +24,22 @@
  * @return {boolean}
  */
 var canJump = function(nums) {
-    
+    if (!nums || nums.length <= 0) {
+        return false
+    }
+
+    let farest = nums[0]
+    for (let i = 0; i < nums.length;) {
+        if (i == nums.length - 1) return true
+        if (farest <= 0) return false
+
+        farest--;
+
+        farest = Math.max(nums[i], farest)
+        if (farest > 0) {
+            i++;
+        }
+    }
 };
+
+console.log(canJump([0,1]))
