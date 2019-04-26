@@ -16,7 +16,7 @@
 解释: 通过重复调用 next 直到 hasNext 返回false，next 返回的元素的顺序应该是: [1,4,6]。
  */
 
- /**
+/**
  * // This is the interface that allows for creating nested lists.
  * // You should not implement it, or speculate about its implementation
  * function NestedInteger() {
@@ -42,33 +42,72 @@
  *     };
  * };
  */
+
+function NestedInteger(item) {
+
+  this.item = item
+  // @return {boolean}
+  this.isInteger = function() {
+    return !Array.isArray(this.item)
+  }
+  // @return {integer}
+  this.getInteger = function() {
+    return this.item
+  }
+  // @return {NestedInteger[]}
+  this.getList = function() {
+    return this.item
+  }
+
+  if (!this.isInteger()) {
+    this.item = this.item.map(one => new NestedInteger(one))
+  }
+}
+
 /**
  * @constructor
  * @param {NestedInteger[]} nestedList
  */
 var NestedIterator = function(nestedList) {
-    
-};
-
+  function* gen(items) {
+    for (let item of items) {
+      if (item.isInteger()) {
+        yield item.getInteger()
+      } else {
+        yield* gen(item.getList())
+      }
+    }
+  }
+  this.iterator = gen(nestedList)
+  this.current = this.iterator.next()
+}
 
 /**
  * @this NestedIterator
  * @returns {boolean}
  */
 NestedIterator.prototype.hasNext = function() {
-    
-};
+  return !this.current.done
+}
 
 /**
  * @this NestedIterator
  * @returns {integer}
  */
 NestedIterator.prototype.next = function() {
-    
-};
+  const value = this.current.value
+  this.current = this.iterator.next()
+  return value
+}
 
 /**
  * Your NestedIterator will be called like this:
  * var i = new NestedIterator(nestedList), a = [];
  * while (i.hasNext()) a.push(i.next());
-*/
+ */
+var nestedList = [[1,2,3],[2],[],[1,2,3]].map(item=>new NestedInteger(item))
+console.log(nestedList.length)
+console.log(Array.isArray(nestedList))
+var i = new NestedIterator(nestedList), a = [];
+ while (i.hasNext()) a.push(i.next());
+ console.log(a)
