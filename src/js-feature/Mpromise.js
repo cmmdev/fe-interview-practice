@@ -15,6 +15,7 @@ function Mpromise(fun) {
   fun(resolve, reject)
 }
 
+// ..
 Mpromise.prototype.then = function(onFullfiled, onRejected) {
   if (this.status == 'pending') {
 
