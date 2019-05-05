@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+
+  <style>
+    .root {
+      float: left;
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .root .col {
+      width: 30%;
+      float: left;
+      padding-bottom: 9999px;
+      margin-bottom: -9999px;
+    }
+
+    .root::after {
+      content: '';
+      clear: both;
+    }
+
+    .red {
+      background: red;
+    }
+    .green {
+      background: green;
+    }
+
+    .blue {
+      background: blue;
+    }
+  </style>
+</head>
+<body>
+  <div class="root">
+    <div class="col red">aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa 
+        aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa 
+        aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa 
+        aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa 
+        aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa 
+      aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa aaaa </div>
+    <div class="col green">bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb 
+        bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb 
+        bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb 
+        bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb 
+        bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb 
+        bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb bbbb 
+    </div>
+    <div class="col blue">cccc cccc cccc cccc cccc cccc cccc cccc cccc </div>
+  </div>
+  <div>test new line</div>
+  
+</body>
+</html>

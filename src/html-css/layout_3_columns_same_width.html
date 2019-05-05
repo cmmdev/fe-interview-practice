@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .inner {
+        width: 33.33%;
+        height: 300px;
+        display: inline-block;
+        outline: solid 1px blue;
+      }
+      .inner:nth-child(3) {
+        margin-right:-5em;
+      }
+      .outer {
+        font-size: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="outer">
+      <div class="inner"></div>
+      <div class="inner"></div>
+      <div class="inner"></div>
+      <span style="font-size:12px">test</span>
+      
+    </div>
+  </body>
+</html>
