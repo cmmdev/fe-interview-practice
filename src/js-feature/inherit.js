@@ -21,7 +21,7 @@ function _inherits(subClass, superClass) {
 
 /// --------------- babel implementation above --------------------
 function Cat(name) {
-  this.name = name;
+  this.name = name
 }
 
 Cat.prototype.meow = function() {
@@ -29,18 +29,17 @@ Cat.prototype.meow = function() {
 }
 
 function Tiger(name) {
-  this.name = name;
+  this.name = name
 }
 
-
-let inherits = function (subClass, superClass) {
+let inherits = function(subClass, superClass) {
   subClass.prototype = Object.create(superClass.prototype, {
     constructor: {
       value: subClass,
       enumerable: false,
+      writable: true,
+      configurable: true
     }
   })
   subClass.__proto__ = superClass
 }
-
-
