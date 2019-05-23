@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 310px;
+      border: 1px lightgrey solid
+    }
+
+    .row {
+      margin-top: 1em;
+      /* clear: both; */
+      overflow: hidden;
+    }
+
+    .label {
+      float:left;
+      width: 90px;
+      line-height: 16px;
+      padding: 7px 0;
+      word-break: break-all;
+      height: 150px;
+      border: solid 1px yellowgreen
+    }
+
+    .content {
+      margin-left: 95px;
+      word-break: break-all;
+      border: solid 1px lightcoral
+    }
+  </style>
+</head>
+<body>
+  BFC：<a href="https://www.jianshu.com/p/7e04ed3f4bea" target="_blank">清除浮动的原理 </a>
+  <div class="container">
+    <div class="row">
+      <div class="label">111</div>
+      <div class="content">111value</div>
+    </div>
+    <div class="row">
+      <div class="label">222</div>
+      <div class="content">222value 222value 222value 222value 222value</div>
+    </div>
+    <div class="row">
+      <div class="label">333 333 333333 333 333 333 333 label</div>
+      <div class="content">333value</div>
+    </div>
+    <div class="row">
+      <div class="label">444</div>
+      <div class="content">444value</div>
+    </div>
+    <div class="row">
+      <div class="label">555</div>
+      <div class="content">555value</div>
+    </div>
+    
+  </div>
+  
+</body>
+</html>

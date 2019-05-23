@@ -1,0 +1,55 @@
+<!-- 按照link, visited, focus, hover, active的顺序设置样式，否则被覆盖了-->
+<!--f ha lv-->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+    .cmm {
+      width: 100px;
+      height: 100px;
+    }
+
+    .cmm:link {
+      background:red;
+    }
+
+    .cmm:visited {
+      background: darkred;
+    }
+
+    .cmm:focus {
+      background: burlywood;
+    }
+    
+    .cmm:hover {
+      background: lightgreen;
+    }
+
+    .cmm:active {
+      background: lightcoral;
+    }
+
+    
+
+    
+    </style>
+  </head>
+  <body>
+    <div
+      tabindex="0"
+      onblur='alert("失去焦点");'
+      style="border:1px solid #ccc;width:200px;height:200px;outline=0;"
+    ></div>
+    <div
+      tabindex="1"
+      style="border:1px solid #ccc;width:200px;height:200px;outline=0;"
+    ></div>
+    <a class="cmm" target="_blank" href="https://www.baidu.com">
+      xxxx
+    </a>
+  </body>
+</html>

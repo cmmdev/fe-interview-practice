@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+    <style>
+      .wrapper {
+        width: 100%;
+        font-size: 0px;
+        margin: 0px;
+      }
+
+      .outer {
+        display: inline-block;
+        width: 400px;
+        height: 400px;
+        background: lightgray;
+        box-sizing: border-box;
+        overflow: auto;
+      }
+      .log {
+        display: inline-block;
+        vertical-align: top;
+        width: 100%;
+        height: 400px;
+        padding-left: 400px;
+        padding-right: 200px;
+        outline: solid 2px yellow;
+        font-size: 12px;
+        box-sizing: border-box;
+        overflow: auto;
+      }
+      .right {
+        display: inline-block;
+        outline: solid 2px lightsteelblue;
+        width: 200px;
+        margin-left: -200px;
+        margin-right: -100%;
+        vertical-align: top;
+        height: 400px;
+        font-size: 14px;
+        border: solid 20px lightcoral;
+        box-sizing: content-box;
+      }
+      .middle {
+        width: 200px;
+        height: 200px;
+        background: lightcyan;
+      }
+      .inner {
+        width: 100px;
+        height: 100px;
+        background: lightblue;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      sum(子元素宽+ml+mr) = 父元素宽度
+    </div>
+    <div class="wrapper">
+      
+      <div class="log">
+        hello world
+        <button onclick="log('clear'+Math.random())">clear</button>
+      </div>
+      <div class="right">
+        right
+        <button onclick="alert('reset')">
+          reset
+        </button>
+        <input type="checkbox">
+      </div>
+      <div class="outer" clickable="true">
+        <div class="middle" clickable="true">
+          <input class="inner" type="checkbox">
+          <button onclick="log('test'+Math.random())">test</button>
+        </div>
+      </div>
+    </div>
+
+    <p>Please click on the checkbox control.</p>
+
+    <form>
+      <label for="id-checkbox">Checkbox:</label>
+      <input type="checkbox" id="id-checkbox" />
+    </form>
+
+    <div id="output-box"></div>
+
+    <script>
+      function domGet(clazz) {
+        return document.getElementsByClassName(clazz)[0]
+      }
+
+      function log(str) {
+        let p = domGet('log').appendChild(document.createElement('p'))
+        p.appendChild(document.createTextNode(str))
+      }
+
+      window.onload = function() {
+        domGet('outer').addEventListener(
+          'click',
+          event => {
+            console.log('click outer')
+            console.dir(event)
+            event.preventDefault();
+            event.stopPropagation();
+          },
+          true
+        )
+        domGet('middle').addEventListener(
+          'click',
+          event => {
+            console.log('click middle')
+            console.dir(event)
+          },
+          false
+        )
+        domGet('inner').addEventListener(
+          'click',
+          event => {
+            console.log('click inner')
+            console.dir(event)
+            event.preventDefault();
+          },
+          true
+        )
+
+        document.querySelector('#id-checkbox').addEventListener(
+          'click',
+          function(event) {
+            document.getElementById('output-box').innerHTML +=
+              "Sorry! <code>preventDefault()</code> won't let you check this!<br>"
+            event.preventDefault()
+          },
+          false
+        )
+      }
+    </script>
+  </body>
+</html>
